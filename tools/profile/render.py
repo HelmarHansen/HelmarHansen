@@ -49,6 +49,8 @@ CSS = """
 .fl{animation:fl 6s steps(1) infinite both}
 @keyframes fl{0%,91%,95%,100%{opacity:1}93%,97%{opacity:.4}}
 .zoom{transform-origin:415px 250px;animation:zoom 1.6s steps(8) both}
+.walk{transform-origin:415px 250px;animation:walk .7s steps(5) both}
+@keyframes walk{from{transform:scale(.8);opacity:.3}to{transform:scale(1);opacity:1}}
 @keyframes zoom{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
 .cl{animation:cl linear infinite}
 @keyframes cl{from{transform:translateX(-260px)}to{transform:translateX(900px)}}
@@ -639,10 +641,8 @@ def main():
 
     import street as street_view
     user = cfg.get("github_user", "")
-    scene_item = emit("scene.svg", scene(cfg, model, accent), f"https://github.com/{user}/{user}/blob/main/STREET.md")
-    street_item = emit("street.svg", street_view.street(cfg, model, accent), f"https://github.com/{user}")
+    scene_item = emit("scene.svg", scene(cfg, model, accent), f"https://github.com/{user}/{user}/blob/main/assets/street/0.md")
     rows.append([scene_item])
-
     projects = data.get("projects", [])
     half = W // 2
     for ri in range(0, len(projects), 2):
@@ -657,7 +657,8 @@ def main():
 
     rows.append([emit("footer.svg", footer_slice(cfg, data))])
 
-    manifest = json.dumps({"width": W, "rows": rows, "street": street_item}, ensure_ascii=False, indent=2) + "\n"
+    game_pages = street_view.build_game(cfg, model, accent, projects, user, emit)
+    manifest = json.dumps({"width": W, "rows": rows, "pages": game_pages}, ensure_ascii=False, indent=2) + "\n"
     write_if_changed(MANIFEST_PATH, manifest)
     print(f"{sum(len(r) for r in rows)} SVG-Dateien in {ASSET_DIR} geschrieben.")
 

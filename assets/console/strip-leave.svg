@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="415" height="44" viewBox="0 0 415 44" shape-rendering="crispEdges"><style>
+.fade{animation:fade .9s both}
+@keyframes fade{from{opacity:0}}
+.tw{animation:tw 3.2s steps(1) infinite both}
+@keyframes tw{0%,100%{opacity:1}50%{opacity:.25}}
+.bl{animation:bl 2.4s steps(1) infinite both}
+@keyframes bl{0%,60%{opacity:1}61%,100%{opacity:0}}
+.fl{animation:fl 6s steps(1) infinite both}
+@keyframes fl{0%,91%,95%,100%{opacity:1}93%,97%{opacity:.4}}
+.zoom{transform-origin:415px 250px;animation:zoom 1.6s steps(8) both}
+.walk{transform-origin:415px 250px;animation:walk .7s steps(5) both}
+@keyframes walk{from{transform:scale(.8);opacity:.3}to{transform:scale(1);opacity:1}}
+@keyframes zoom{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+.cl{animation:cl linear infinite}
+@keyframes cl{from{transform:translateX(-260px)}to{transform:translateX(900px)}}
+.pl{animation:pl 52s steps(500) infinite}
+@keyframes pl{0%,55%{transform:translateX(-40px)}100%{transform:translateX(900px)}}
+.ss{animation:ss 17s steps(14) infinite;opacity:0}
+@keyframes ss{0%,88%{transform:translate(0,0);opacity:0}89%{opacity:1}100%{transform:translate(110px,60px);opacity:0}}
+.c1{animation:c1 19s steps(430) infinite}
+@keyframes c1{from{transform:translateX(-30px)}to{transform:translateX(860px)}}
+.c2{animation:c2 27s steps(430) infinite}
+@keyframes c2{from{transform:translateX(860px)}to{transform:translateX(-30px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect x="0" y="0" width="415" height="44" fill="#0a0f22" /><rect x="0" y="0" width="415" height="2" fill="#2a3668" /><rect x="0" y="42" width="415" height="2" fill="#2a3668" /><path d="M144 15h6v2h-6zM144 17h2v2h-2zM150 17h2v2h-2zM144 19h6v2h-6zM144 21h2v2h-2zM150 21h2v2h-2zM144 23h6v2h-6zM156 15h4v2h-4zM154 17h2v2h-2zM160 17h2v2h-2zM154 19h8v2h-8zM154 21h2v2h-2zM160 21h2v2h-2zM154 23h2v2h-2zM160 23h2v2h-2zM166 15h4v2h-4zM164 17h2v2h-2zM170 17h2v2h-2zM164 19h2v2h-2zM164 21h2v2h-2zM170 21h2v2h-2zM166 23h4v2h-4zM174 15h2v2h-2zM180 15h2v2h-2zM174 17h2v2h-2zM178 17h2v2h-2zM174 19h4v2h-4zM174 21h2v2h-2zM178 21h2v2h-2zM174 23h2v2h-2zM180 23h2v2h-2zM188 15h6v2h-6zM190 17h2v2h-2zM190 19h2v2h-2zM190 21h2v2h-2zM190 23h2v2h-2zM198 15h4v2h-4zM196 17h2v2h-2zM202 17h2v2h-2zM196 19h2v2h-2zM202 19h2v2h-2zM196 21h2v2h-2zM202 21h2v2h-2zM198 23h4v2h-4zM210 15h6v2h-6zM212 17h2v2h-2zM212 19h2v2h-2zM212 21h2v2h-2zM212 23h2v2h-2zM218 15h2v2h-2zM224 15h2v2h-2zM218 17h2v2h-2zM224 17h2v2h-2zM218 19h8v2h-8zM218 21h2v2h-2zM224 21h2v2h-2zM218 23h2v2h-2zM224 23h2v2h-2zM228 15h8v2h-8zM228 17h2v2h-2zM228 19h6v2h-6zM228 21h2v2h-2zM228 23h8v2h-8zM244 15h4v2h-4zM242 17h2v2h-2zM248 17h2v2h-2zM242 19h2v2h-2zM242 21h2v2h-2zM248 21h2v2h-2zM244 23h4v2h-4zM252 15h2v2h-2zM252 17h2v2h-2zM252 19h2v2h-2zM252 21h2v2h-2zM252 23h2v2h-2zM256 15h6v2h-6zM258 17h2v2h-2zM258 19h2v2h-2zM258 21h2v2h-2zM258 23h2v2h-2zM264 15h2v2h-2zM268 15h2v2h-2zM264 17h2v2h-2zM268 17h2v2h-2zM266 19h2v2h-2zM266 21h2v2h-2zM266 23h2v2h-2z" fill="#ffd166" /></svg>

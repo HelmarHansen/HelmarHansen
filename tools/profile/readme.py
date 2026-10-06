@@ -30,6 +30,25 @@ def build_block(manifest):
     return "\n".join(lines)
 
 
+def build_page(page):
+    here = os.path.dirname(page["path"])
+    lines = []
+    for row in page["rows"]:
+        n = len(row)
+        parts = []
+        for item in row:
+            width = item.get("pct") or (100 if n == 1 else round(100 / n, 4))
+            img = f'<img src="{os.path.relpath(item["file"], here).replace(os.sep, "/")}" width="{width:g}%" align="top" alt="{esc(item["alt"])}">'
+            if item.get("href"):
+                img = f'<a href="{esc(item["href"])}">{img}</a>'
+            parts.append(img)
+        lines.append('<p align="center">')
+        lines.append("".join(parts))
+        lines.append("</p>")
+        lines.append("")
+    return "\n".join(lines)
+
+
 def main():
     manifest = load_json(MANIFEST_PATH)
     if not manifest:
@@ -39,11 +58,8 @@ def main():
         text = f.read()
     if text.count(START) != 1 or text.count(END) != 1:
         sys.exit(f"fehler: README.md braucht genau je eine Markierung {START} und {END}.")
-    street = manifest.get("street")
-    if street:
-        img = f'<img src="./{street["file"]}" width="100%" alt="{esc(street["alt"])}">'
-        page = f'<p align="center">\n<a href="{esc(street["href"])}">{img}</a>\n</p>\n'
-        write_if_changed(os.path.join(ROOT, "STREET.md"), page)
+    for page in manifest.get("pages", []):
+        write_if_changed(os.path.join(ROOT, page["path"]), build_page(page))
     block = f"{START}\n{build_block(manifest)}\n{END}"
     new = re.sub(re.escape(START) + r".*?" + re.escape(END), lambda _: block, text, flags=re.S)
     changed = write_if_changed(path, new)

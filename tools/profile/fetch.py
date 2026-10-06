@@ -102,6 +102,11 @@ def pick_projects(nodes, cfg, login):
 
     chosen = []
     for entry in pcfg.get("pinned", []):
+        if isinstance(entry, dict) and entry.get("coming_soon"):
+            chosen.append({"name": entry.get("name", "Coming soon"), "description": entry.get("description", ""),
+                           "url": None, "stars": 0, "language": None, "language_color": None,
+                           "pushed": "", "coming_soon": True})
+            continue
         name, desc = (entry, None) if isinstance(entry, str) else (entry["repo"], entry.get("description"))
         name = name.split("/")[-1]
         node = by_name.get(name.lower())

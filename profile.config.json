@@ -5,12 +5,27 @@
   "tagline": "I like tinkering with AI.",
   "accent": "#ffd166",
   "config_lines": [
-    { "key": "Goal", "value": "work with AI someday" },
-    { "key": "Likes", "value": "understanding things and building them myself" }
+    {
+      "key": "Goal",
+      "value": "work with AI someday"
+    },
+    {
+      "key": "Likes",
+      "value": "understanding things and building them myself"
+    }
   ],
   "projects": {
     "count": 4,
-    "pinned": [],
+    "pinned": [
+      "comfy-queue-manager",
+      "Hacktoberfest-26",
+      "Gemma-4-Contest-Hackathon-Best-Submission",
+      {
+        "coming_soon": true,
+        "name": "Coming soon",
+        "description": "Not published yet."
+      }
+    ],
     "exclude": []
   }
 }

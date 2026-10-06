@@ -16,6 +16,18 @@ END = "<!-- console:end -->"
 def build_block(manifest):
     lines = ['<p align="center">']
     for row in manifest["rows"]:
+        if row[0].get("details"):
+            front, inner = row[0]["front"], row[0]["inner"]
+            lines.append("</p>")
+            lines.append('<div align="center">')
+            lines.append("<details>")
+            lines.append(f'<summary><img src="./{front["file"]}" width="97%" alt="{esc(front["alt"])}"></summary>')
+            lines.append(f'<img src="./{inner["file"]}" width="100%" alt="{esc(inner["alt"])}">')
+            lines.append("</details>")
+            lines.append("</div>")
+            lines.append("")
+            lines.append('<p align="center">')
+            continue
         n = len(row)
         parts = []
         for item in row:

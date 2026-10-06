@@ -48,11 +48,8 @@ CSS = """
 @keyframes bl{0%,60%{opacity:1}61%,100%{opacity:0}}
 .fl{animation:fl 6s steps(1) infinite both}
 @keyframes fl{0%,91%,95%,100%{opacity:1}93%,97%{opacity:.4}}
-.p1,.p2,.p3,.p4{animation-duration:48s;animation-iteration-count:infinite;animation-direction:normal}
-.p0{animation:p0 48s steps(2) infinite}@keyframes p0{0%,100%{transform:translateX(-1px)}50%{transform:translateX(1px)}}
-.p1{animation-name:p1;animation-timing-function:steps(6)}@keyframes p1{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
-.p2{animation-name:p2;animation-timing-function:steps(12)}@keyframes p2{0%,100%{transform:translateX(-6px)}50%{transform:translateX(6px)}}
-.p3{animation-name:p3;animation-timing-function:steps(24)}@keyframes p3{0%,100%{transform:translateX(-12px)}50%{transform:translateX(12px)}}
+.zoom{transform-origin:415px 250px;animation:zoom 1.6s steps(8) both}
+@keyframes zoom{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
 .cl{animation:cl linear infinite}
 @keyframes cl{from{transform:translateX(-260px)}to{transform:translateX(900px)}}
 .pl{animation:pl 52s steps(500) infinite}
@@ -374,13 +371,13 @@ def far_skyline(rng):
     out = []
     for color, lo, hi, seed in ((FAR_1, 50, 118, 1), (FAR_2, 36, 96, 2)):
         r = random.Random(seed + 10)
-        x, d = -30 - r.randrange(0, 10), []
-        while x < W + 30:
+        x, d = -r.randrange(0, 10), []
+        while x < W:
             w = r.randrange(12, 28) // 2 * 2
             h = r.randrange(lo, hi) // 2 * 2
             d.append(rect_d(x, STREET_Y - h, w, h))
             x += w
-        out.append(f'<g class="{"p1" if color == FAR_1 else "p2"}">{path("".join(d), color)}</g>')
+        out.append(path("".join(d), color))
     return "".join(out)
 
 
@@ -482,7 +479,7 @@ def scene(cfg, model, accent):
     text_w = max([pf.width(tagline, 2)] + [pf.width(f"{i['key']}: {i['value']}", 2) for i in shown])
     avoid = [(40, 28, max(560, 56 + text_w + 12), 62 + 96 + 24 + 26 + 22 * len(shown) + 12)]
     body = [sky_bands(),
-            f'<g class="p0">{stars_bg(rng, avoid + [(W - 150, 36, W - 40, 120)])}{moon(W - 100, 74)}</g>',
+            stars_bg(rng, avoid + [(W - 150, 36, W - 40, 120)]), moon(W - 100, 74),
             shooting_star(), wisps(), plane()]
     body.append(far_skyline(rng))
 
@@ -533,14 +530,16 @@ def scene(cfg, model, accent):
         sign_geo.append((sx0, roof - 24 - h, w, h, p1, p2, STREET_Y - hts[i1], STREET_Y - hts[i2]))
 
     city, heights, _ = build_city(model, accent, sign_roofs)
-    body.append('<g class="p3">')
     body.append(city)
     for k, ((num, label), (sx0, sy, w, h, p1, p2, r1, r2)) in enumerate(zip(signs, sign_geo)):
         body.append(rects(p1, sy + h, 2, r1 - (sy + h), ROOF))
         body.append(rects(p2, sy + h, 2, r2 - (sy + h), ROOF))
         body.append(sign_board(sx0, sy, w, h, num, label, accent, round(k * 1.7, 1)))
-    body.append('</g>')
     body.append(street())
+    hint = tr(cfg, "hint")
+    hx = W - 44 - pf.width(hint, 2)
+    body.append(f'<g class="tw" style="animation-duration:2.6s">{rects(hx - 12, 176, pf.width(hint, 2) + 24, 26, "#0a0f22", chr(102) + "ill-opacity=" + chr(34) + ".55" + chr(34))}'
+                f'{tpath(hint, hx, 184, 2, accent)}</g>')
     body.append(car(STREET_Y + 9, "#c94f4f", 1, "c1"))
     body.append(car(STREET_Y + 15, "#4f7ac9", -1, "c2"))
 
@@ -585,6 +584,11 @@ def project_slice(cfg, proj, w, accent):
     my = by + bh - 24
     x = bx + 16
     meta_color = MUTED
+    if proj.get("coming_soon"):
+        tag = "SOON"
+        body.append(tpath(tag, x, my, 2, accent))
+        alt = tr(cfg, "alt_project").format(name=proj["name"], desc=" ".join(desc))
+        return svg_doc(w, H, alt, "".join(body)), H, alt
     if proj.get("language"):
         body.append(tpath(proj["language"], x, my, 2, meta_color))
         x += pf.width(proj["language"], 2) + 16
@@ -633,18 +637,21 @@ def main():
         write_if_changed(os.path.join(ASSET_DIR, name), content)
         return {"file": f"assets/console/{name}", "w": w, "h": h, "alt": alt, "href": href}
 
-    rows.append([emit("scene.svg", scene(cfg, model, accent))])
+    import street as street_view
+    scene_item = emit("scene.svg", scene(cfg, model, accent))
+    street_item = emit("street.svg", street_view.street(cfg, model, accent))
+    rows.append([{"details": True, "front": scene_item, "inner": street_item}])
 
     projects = data.get("projects", [])
     half = W // 2
     for ri in range(0, len(projects), 2):
         pair = projects[ri: ri + 2]
         if len(pair) == 1:
-            rows.append([emit(f"project-{ri + 1}.svg", project_slice(cfg, pair[0], W, accent), pair[0]["url"], W)])
+            rows.append([emit(f"project-{ri + 1}.svg", project_slice(cfg, pair[0], W, accent), pair[0].get("url"), W)])
         else:
             rows.append([
-                emit(f"project-{ri + 1}.svg", project_slice(cfg, pair[0], half, accent), pair[0]["url"], half),
-                emit(f"project-{ri + 2}.svg", project_slice(cfg, pair[1], half, accent), pair[1]["url"], half),
+                emit(f"project-{ri + 1}.svg", project_slice(cfg, pair[0], half, accent), pair[0].get("url"), half),
+                emit(f"project-{ri + 2}.svg", project_slice(cfg, pair[1], half, accent), pair[1].get("url"), half),
             ])
 
     rows.append([emit("footer.svg", footer_slice(cfg, data))])

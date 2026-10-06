@@ -6,7 +6,7 @@
         "file": "assets/console/scene.svg",
         "w": 830,
         "h": 494,
-        "alt": "Jakob: I like tinkering with AI.. Pixel night city: each building is one week, each lit window an active day. 679 contributions in the past year, 164 active days, longest streak 9 days, 1,191 in total.",
+        "alt": "Jakob: I like tinkering with AI.. Pixel night city: each building is one week, each lit window an active day. 151 contributions in the past year, 34 active days, longest streak 10 days, 152 in total.",
         "href": null
       }
     ],
@@ -15,15 +15,15 @@
         "file": "assets/console/project-1.svg",
         "w": 415,
         "h": 176,
-        "alt": "Project example-project-1: Placeholder: the description of your repo from GitHub shows up here.",
-        "href": "https://github.com/DEIN-GITHUB-NAME"
+        "alt": "Project Hacktoberfest-26: No description yet.",
+        "href": "https://github.com/HelmarHansen/Hacktoberfest-26"
       },
       {
         "file": "assets/console/project-2.svg",
         "w": 415,
         "h": 176,
-        "alt": "Project example-project-2: Placeholder: what the project does and why it exists, short and concrete.",
-        "href": "https://github.com/DEIN-GITHUB-NAME"
+        "alt": "Project neetcode-submissions: My NeetCode.io problem submissions",
+        "href": "https://github.com/HelmarHansen/neetcode-submissions"
       }
     ],
     [
@@ -31,15 +31,15 @@
         "file": "assets/console/project-3.svg",
         "w": 415,
         "h": 176,
-        "alt": "Project example-project-3: Placeholder: small experiments belong here too.",
-        "href": "https://github.com/DEIN-GITHUB-NAME"
+        "alt": "Project AppControl: No description yet.",
+        "href": "https://github.com/HelmarHansen/AppControl"
       },
       {
         "file": "assets/console/project-4.svg",
         "w": 415,
         "h": 176,
-        "alt": "Project example-project-4: Placeholder: two lines at most are shown, the rest gets cut off.",
-        "href": "https://github.com/DEIN-GITHUB-NAME"
+        "alt": "Project QuantAI-Werbung: No description yet.",
+        "href": "https://github.com/HelmarHansen/QuantAI-Werbung"
       }
     ],
     [

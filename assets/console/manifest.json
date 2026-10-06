@@ -3,11 +3,21 @@
   "rows": [
     [
       {
-        "file": "assets/console/scene.svg",
-        "w": 830,
-        "h": 494,
-        "alt": "Jakob: I like tinkering with AI.. Pixel night city: each building is one week, each lit window an active day. 151 contributions in the past year, 34 active days, longest streak 10 days, 152 in total.",
-        "href": null
+        "details": true,
+        "front": {
+          "file": "assets/console/scene.svg",
+          "w": 830,
+          "h": 494,
+          "alt": "Jakob: I like tinkering with AI.. Pixel night city: each building is one week, each lit window an active day. 154 contributions in the past year, 34 active days, longest streak 10 days, 155 in total.",
+          "href": null
+        },
+        "inner": {
+          "file": "assets/console/street.svg",
+          "w": 830,
+          "h": 460,
+          "alt": "Street view at night: tall buildings with lit windows and four neon signs: 154 contributions in the past year, 34 active days, longest streak 10 days, 155 in total.",
+          "href": null
+        }
       }
     ],
     [
@@ -15,15 +25,15 @@
         "file": "assets/console/project-1.svg",
         "w": 415,
         "h": 176,
-        "alt": "Project Hacktoberfest-26: No description yet.",
-        "href": "https://github.com/HelmarHansen/Hacktoberfest-26"
+        "alt": "Project comfy-queue-manager: No description yet.",
+        "href": "https://github.com/HelmarHansen/comfy-queue-manager"
       },
       {
         "file": "assets/console/project-2.svg",
         "w": 415,
         "h": 176,
-        "alt": "Project neetcode-submissions: My NeetCode.io problem submissions",
-        "href": "https://github.com/HelmarHansen/neetcode-submissions"
+        "alt": "Project Hacktoberfest-26: No description yet.",
+        "href": "https://github.com/HelmarHansen/Hacktoberfest-26"
       }
     ],
     [
@@ -31,15 +41,15 @@
         "file": "assets/console/project-3.svg",
         "w": 415,
         "h": 176,
-        "alt": "Project AppControl: No description yet.",
-        "href": "https://github.com/HelmarHansen/AppControl"
+        "alt": "Project Gemma-4-Contest-Hackathon-Best-Submission: No description yet.",
+        "href": "https://github.com/HelmarHansen/Gemma-4-Contest-Hackathon-Best-Submission"
       },
       {
         "file": "assets/console/project-4.svg",
         "w": 415,
         "h": 176,
-        "alt": "Project QuantAI-Werbung: No description yet.",
-        "href": "https://github.com/HelmarHansen/QuantAI-Werbung"
+        "alt": "Project Coming soon: Not published yet.",
+        "href": null
       }
     ],
     [

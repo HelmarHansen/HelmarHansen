@@ -7,11 +7,8 @@
 @keyframes bl{0%,60%{opacity:1}61%,100%{opacity:0}}
 .fl{animation:fl 6s steps(1) infinite both}
 @keyframes fl{0%,91%,95%,100%{opacity:1}93%,97%{opacity:.4}}
-.p1,.p2,.p3,.p4{animation-duration:48s;animation-iteration-count:infinite;animation-direction:normal}
-.p0{animation:p0 48s steps(2) infinite}@keyframes p0{0%,100%{transform:translateX(-1px)}50%{transform:translateX(1px)}}
-.p1{animation-name:p1;animation-timing-function:steps(6)}@keyframes p1{0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
-.p2{animation-name:p2;animation-timing-function:steps(12)}@keyframes p2{0%,100%{transform:translateX(-6px)}50%{transform:translateX(6px)}}
-.p3{animation-name:p3;animation-timing-function:steps(24)}@keyframes p3{0%,100%{transform:translateX(-12px)}50%{transform:translateX(12px)}}
+.zoom{transform-origin:415px 250px;animation:zoom 1.6s steps(8) both}
+@keyframes zoom{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
 .cl{animation:cl linear infinite}
 @keyframes cl{from{transform:translateX(-260px)}to{transform:translateX(900px)}}
 .pl{animation:pl 52s steps(500) infinite}

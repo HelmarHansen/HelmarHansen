@@ -643,10 +643,19 @@
     "2026-10-03": 0,
     "2026-10-04": 18,
     "2026-10-05": 0,
-    "2026-10-06": 3
+    "2026-10-06": 6
   },
   "demo": false,
   "projects": [
+    {
+      "description": "",
+      "language": "Python",
+      "language_color": "#3572A5",
+      "name": "comfy-queue-manager",
+      "pushed": "2026-07-03",
+      "stars": 2,
+      "url": "https://github.com/HelmarHansen/comfy-queue-manager"
+    },
     {
       "description": "",
       "language": "JavaScript",
@@ -657,31 +666,23 @@
       "url": "https://github.com/HelmarHansen/Hacktoberfest-26"
     },
     {
-      "description": "My NeetCode.io problem submissions",
+      "description": "",
       "language": "Python",
       "language_color": "#3572A5",
-      "name": "neetcode-submissions",
-      "pushed": "2026-10-02",
-      "stars": 0,
-      "url": "https://github.com/HelmarHansen/neetcode-submissions"
+      "name": "Gemma-4-Contest-Hackathon-Best-Submission",
+      "pushed": "2026-05-18",
+      "stars": 1,
+      "url": "https://github.com/HelmarHansen/Gemma-4-Contest-Hackathon-Best-Submission"
     },
     {
-      "description": "",
-      "language": "C#",
-      "language_color": "#7355dd",
-      "name": "AppControl",
-      "pushed": "2026-08-17",
-      "stars": 0,
-      "url": "https://github.com/HelmarHansen/AppControl"
-    },
-    {
-      "description": "",
+      "coming_soon": true,
+      "description": "Not published yet.",
       "language": null,
       "language_color": null,
-      "name": "QuantAI-Werbung",
-      "pushed": "2026-07-03",
-      "stars": 1,
-      "url": "https://github.com/HelmarHansen/QuantAI-Werbung"
+      "name": "Coming soon",
+      "pushed": "",
+      "stars": 0,
+      "url": null
     }
   ],
   "repo_count": 11,

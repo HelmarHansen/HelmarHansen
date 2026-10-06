@@ -538,10 +538,6 @@ def scene(cfg, model, accent):
         body.append(rects(p2, sy + h, 2, r2 - (sy + h), ROOF))
         body.append(sign_board(sx0, sy, w, h, num, label, accent, round(k * 1.7, 1)))
     body.append(street())
-    hint = tr(cfg, "hint")
-    hx = W - 44 - pf.width(hint, 2)
-    body.append(f'<g class="tw" style="animation-duration:2.6s">{rects(hx - 12, 176, pf.width(hint, 2) + 24, 26, "#0a0f22", chr(102) + "ill-opacity=" + chr(34) + ".55" + chr(34))}'
-                f'{tpath(hint, hx, 184, 2, accent)}</g>')
     body.append(car(STREET_Y + 9, "#c94f4f", 1, "c1"))
     body.append(car(STREET_Y + 15, "#4f7ac9", -1, "c2"))
 
@@ -641,7 +637,7 @@ def main():
 
     import street as street_view
     user = cfg.get("github_user", "")
-    scene_item = emit("scene.svg", scene(cfg, model, accent), f"https://github.com/{user}/{user}/blob/main/assets/street/0.md")
+    scene_item = emit("scene.svg", scene(cfg, model, accent), None)
     rows.append([scene_item])
     projects = data.get("projects", [])
     half = W // 2
@@ -657,8 +653,8 @@ def main():
 
     rows.append([emit("footer.svg", footer_slice(cfg, data))])
 
-    game_pages = street_view.build_game(cfg, model, accent, projects, user, emit)
-    manifest = json.dumps({"width": W, "rows": rows, "pages": game_pages}, ensure_ascii=False, indent=2) + "\n"
+    game = street_view.build_game(cfg, model, accent, projects, user, emit)
+    manifest = json.dumps({"width": W, "rows": rows, "game": game}, ensure_ascii=False, indent=2) + "\n"
     write_if_changed(MANIFEST_PATH, manifest)
     print(f"{sum(len(r) for r in rows)} SVG-Dateien in {ASSET_DIR} geschrieben.")
 

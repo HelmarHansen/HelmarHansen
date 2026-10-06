@@ -6,8 +6,8 @@
         "file": "assets/console/scene.svg",
         "w": 830,
         "h": 494,
-        "alt": "Jakob: I like tinkering with AI.. Pixel night city: each building is one week, each lit window an active day. 160 contributions in the past year, 34 active days, longest streak 10 days, 161 in total.",
-        "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/0.md"
+        "alt": "Jakob: I like tinkering with AI.. Pixel night city: each building is one week, each lit window an active day. 163 contributions in the past year, 34 active days, longest streak 10 days, 164 in total.",
+        "href": null
       }
     ],
     [
@@ -52,232 +52,36 @@
       }
     ]
   ],
-  "pages": [
-    {
-      "path": "assets/street/0.md",
-      "rows": [
-        [
-          {
-            "file": "assets/console/walk-0-0.svg",
-            "w": 300,
-            "h": 460,
-            "alt": "Street view at night: tall buildings with lit windows and four neon signs: 160 contributions in the past year, 34 active days, longest streak 10 days, 161 in total.",
-            "href": null,
-            "pct": 36.1446
-          },
-          {
-            "file": "assets/console/walk-0-1.svg",
-            "w": 230,
-            "h": 460,
-            "alt": "Street view at night: tall buildings with lit windows and four neon signs: 160 contributions in the past year, 34 active days, longest streak 10 days, 161 in total.",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/1.md",
-            "pct": 27.7108
-          },
-          {
-            "file": "assets/console/walk-0-2.svg",
-            "w": 300,
-            "h": 460,
-            "alt": "Street view at night: tall buildings with lit windows and four neon signs: 160 contributions in the past year, 34 active days, longest streak 10 days, 161 in total.",
-            "href": null,
-            "pct": 36.1446
-          }
-        ],
-        [
-          {
-            "file": "assets/console/strip-leave.svg",
-            "w": 415,
-            "h": 44,
-            "alt": "BACK TO THE CITY",
-            "href": "https://github.com/HelmarHansen"
-          }
-        ]
+  "game": {
+    "max": 10,
+    "door_pos": {
+      "2": [
+        0,
+        1
+      ],
+      "7": [
+        2,
+        3
       ]
     },
-    {
-      "path": "assets/street/1.md",
-      "rows": [
-        [
-          {
-            "file": "assets/console/walk-1-0.svg",
-            "w": 300,
-            "h": 460,
-            "alt": "Street view at night: tall buildings with lit windows and four neon signs: 160 contributions in the past year, 34 active days, longest streak 10 days, 161 in total.",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/room-1.md",
-            "pct": 36.1446
-          },
-          {
-            "file": "assets/console/walk-1-1.svg",
-            "w": 230,
-            "h": 460,
-            "alt": "Street view at night: tall buildings with lit windows and four neon signs: 160 contributions in the past year, 34 active days, longest streak 10 days, 161 in total.",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/2.md",
-            "pct": 27.7108
-          },
-          {
-            "file": "assets/console/walk-1-2.svg",
-            "w": 300,
-            "h": 460,
-            "alt": "Street view at night: tall buildings with lit windows and four neon signs: 160 contributions in the past year, 34 active days, longest streak 10 days, 161 in total.",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/room-2.md",
-            "pct": 36.1446
-          }
-        ],
-        [
-          {
-            "file": "assets/console/strip-leave.svg",
-            "w": 415,
-            "h": 44,
-            "alt": "BACK TO THE CITY",
-            "href": "https://github.com/HelmarHansen"
-          },
-          {
-            "file": "assets/console/strip-back.svg",
-            "w": 415,
-            "h": 44,
-            "alt": "ONE STEP BACK",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/0.md"
-          }
-        ]
-      ]
-    },
-    {
-      "path": "assets/street/2.md",
-      "rows": [
-        [
-          {
-            "file": "assets/console/walk-2-0.svg",
-            "w": 300,
-            "h": 460,
-            "alt": "Street view at night: tall buildings with lit windows and four neon signs: 160 contributions in the past year, 34 active days, longest streak 10 days, 161 in total.",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/room-3.md",
-            "pct": 36.1446
-          },
-          {
-            "file": "assets/console/walk-2-1.svg",
-            "w": 230,
-            "h": 460,
-            "alt": "Street view at night: tall buildings with lit windows and four neon signs: 160 contributions in the past year, 34 active days, longest streak 10 days, 161 in total.",
-            "href": null,
-            "pct": 27.7108
-          },
-          {
-            "file": "assets/console/walk-2-2.svg",
-            "w": 300,
-            "h": 460,
-            "alt": "Street view at night: tall buildings with lit windows and four neon signs: 160 contributions in the past year, 34 active days, longest streak 10 days, 161 in total.",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/room-4.md",
-            "pct": 36.1446
-          }
-        ],
-        [
-          {
-            "file": "assets/console/strip-leave.svg",
-            "w": 415,
-            "h": 44,
-            "alt": "BACK TO THE CITY",
-            "href": "https://github.com/HelmarHansen"
-          },
-          {
-            "file": "assets/console/strip-back.svg",
-            "w": 415,
-            "h": 44,
-            "alt": "ONE STEP BACK",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/1.md"
-          }
-        ]
-      ]
-    },
-    {
-      "path": "assets/street/room-1.md",
-      "rows": [
-        [
-          {
-            "file": "assets/console/room-1.svg",
-            "w": 830,
-            "h": 440,
-            "alt": "Room for the project comfy-queue-manager: No description yet.",
-            "href": "https://github.com/HelmarHansen/comfy-queue-manager"
-          }
-        ],
-        [
-          {
-            "file": "assets/console/strip-room-back.svg",
-            "w": 830,
-            "h": 44,
-            "alt": "BACK TO THE STREET",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/1.md"
-          }
-        ]
-      ]
-    },
-    {
-      "path": "assets/street/room-2.md",
-      "rows": [
-        [
-          {
-            "file": "assets/console/room-2.svg",
-            "w": 830,
-            "h": 440,
-            "alt": "Room for the project Hacktoberfest-26: No description yet.",
-            "href": "https://github.com/HelmarHansen/Hacktoberfest-26"
-          }
-        ],
-        [
-          {
-            "file": "assets/console/strip-room-back.svg",
-            "w": 830,
-            "h": 44,
-            "alt": "BACK TO THE STREET",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/1.md"
-          }
-        ]
-      ]
-    },
-    {
-      "path": "assets/street/room-3.md",
-      "rows": [
-        [
-          {
-            "file": "assets/console/room-3.svg",
-            "w": 830,
-            "h": 440,
-            "alt": "Room for the project Gemma-4-Contest-Hackathon-Best-Submission: No description yet.",
-            "href": "https://github.com/HelmarHansen/Gemma-4-Contest-Hackathon-Best-Submission"
-          }
-        ],
-        [
-          {
-            "file": "assets/console/strip-room-back.svg",
-            "w": 830,
-            "h": 44,
-            "alt": "BACK TO THE STREET",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/2.md"
-          }
-        ]
-      ]
-    },
-    {
-      "path": "assets/street/room-4.md",
-      "rows": [
-        [
-          {
-            "file": "assets/console/room-4.svg",
-            "w": 830,
-            "h": 440,
-            "alt": "Room for the project Coming soon: Not published yet.",
-            "href": null
-          }
-        ],
-        [
-          {
-            "file": "assets/console/strip-room-back.svg",
-            "w": 830,
-            "h": 44,
-            "alt": "BACK TO THE STREET",
-            "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/assets/street/2.md"
-          }
-        ]
-      ]
-    }
-  ]
+    "projects": [
+      {
+        "name": "comfy-queue-manager",
+        "url": "https://github.com/HelmarHansen/comfy-queue-manager"
+      },
+      {
+        "name": "Hacktoberfest-26",
+        "url": "https://github.com/HelmarHansen/Hacktoberfest-26"
+      },
+      {
+        "name": "Gemma-4-Contest-Hackathon-Best-Submission",
+        "url": "https://github.com/HelmarHansen/Gemma-4-Contest-Hackathon-Best-Submission"
+      },
+      {
+        "name": "Coming soon",
+        "url": null
+      }
+    ],
+    "alt_street": "Street view at night: tall buildings with lit windows and four neon signs: 163 contributions in the past year, 34 active days, longest streak 10 days, 164 in total."
+  }
 }

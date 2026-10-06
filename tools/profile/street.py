@@ -22,8 +22,10 @@ ZW = 140.0                         # Länge der Welt
 FAR = 80.0                         # ab hier maximal Nebel
 FOG = "#131d44"
 
-STEPS = [0.0, 8.0, 22.0]           # Kamerapositionen entlang der Straße
-DOORS = [(-1, 14.0), (1, 14.0), (-1, 28.0), (1, 28.0)]   # (Seite, Welt-z) je Projekt
+STEP = 3.0                         # Schrittlänge in m
+MAXPOS = 10                        # letzte Position (0 .. 9)
+DOORS = [(-1, 12.0), (1, 12.0), (-1, 27.0), (1, 27.0)]   # (Seite, Welt-z) je Projekt
+DOOR_POS = {2: (0, 1), 7: (2, 3)}  # Position, an der man Türen betreten kann -> (links, rechts)
 CUTS = (300, 530)                  # Trennlinien der drei Klickstreifen
 
 
@@ -338,61 +340,34 @@ def room_doc(cfg, proj, accent, index):
 
 # ---------------------------------------------------------------- Zusammenbau
 
+def button_doc(text, accent, w=200):
+    h = 44
+    tw = R.pf.width(text, 2)
+    body = (rects(0, 0, w, h, "#0a0f22") + rects(0, 0, w, 2, accent) + rects(0, h - 2, w, 2, accent)
+            + rects(0, 0, 2, h, accent) + rects(w - 2, 0, 2, h, accent)
+            + R.tpath(text, (w - tw) // 2, 15, 2, mix(accent, "#ffffff", 0.5)))
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}"'
+            f' shape-rendering="crispEdges"><style>{R.CSS}</style>{body}</svg>\n'), h
+
+
 def build_game(cfg, model, accent, projects, user, emit):
-    """Erzeugt alle Bilder (über emit) und liefert die Seitenbeschreibung für readme.py."""
+    """Erzeugt alle Bilder des Straßenspiels (über emit) und liefert die Beschreibung für game.py."""
     world = build_world(model)
-    base = f"https://github.com/{user}/{user}/blob/main/"
-    profile = f"https://github.com/{user}"
     ps = (projects + [{"name": "", "description": "", "url": None, "coming_soon": True}] * 4)[:4]
-
-    def page_path(step):
-        return f"assets/street/{step}.md"
-
-    def page_url(step):
-        return base + page_path(step)
-
-    pages = []
-    n = len(STEPS)
-    door_step = {1: (0, 1), 2: (2, 3)}
     alt_street = tr(cfg, "alt_street").format(
         year=fmt_int(cfg, model["year_total"]), days=fmt_int(cfg, model["active_days"]),
         streak=fmt_int(cfg, model["longest"]), total=fmt_int(cfg, model["total"]))
-    for step, dz in enumerate(STEPS):
-        cls = "zoom" if step == 0 else "walk"
-        body = scene_body(cfg, model, accent, world, dz, ps, cls) + figure()
-        hint = tr(cfg, "hint_walk") if step < n - 1 else tr(cfg, "hint_end")
-        hx = CX - R.pf.width(hint, 2) // 2
-        body += (f'<g class="tw" style="animation-duration:2.6s">{rects(hx - 10, SH - 150, R.pf.width(hint, 2) + 20, 24, "#0a0f22", "fill-opacity=" + chr(34) + ".55" + chr(34))}'
-                 f'{R.tpath(hint, hx, SH - 143, 2, accent)}</g>')
-        left_i, right_i = door_step.get(step, (None, None))
-        row = []
-        spans = [(0, CUTS[0]), (CUTS[0], CUTS[1] - CUTS[0]), (CUTS[1], SW - CUTS[1])]
-        hrefs = [None, None, None]
-        if left_i is not None:
-            hrefs[0] = base + f"assets/street/room-{left_i + 1}.md"
-            hrefs[2] = base + f"assets/street/room-{right_i + 1}.md"
-        if step < n - 1:
-            hrefs[1] = page_url(step + 1)
-        for k, (x0, w) in enumerate(spans):
-            item = emit(f"walk-{step}-{k}.svg", (slice_doc(body, x0, w), SH, alt_street), hrefs[k], w)
-            item["pct"] = round(w / SW * 100, 4)
-            row.append(item)
-        rows = [row]
-        strips = []
-        s1, h1 = strip_doc(cfg, tr(cfg, "leave"), SW // 2, accent)
-        strips.append(emit("strip-leave.svg", (s1, h1, tr(cfg, "leave")), profile, SW // 2))
-        if step > 0:
-            s2, h2 = strip_doc(cfg, tr(cfg, "back_step"), SW // 2, accent)
-            strips.append(emit("strip-back.svg", (s2, h2, tr(cfg, "back_step")), page_url(step - 1), SW // 2))
-        rows.append(strips)
-        pages.append({"path": page_path(step), "rows": rows})
-
-    # Räume
-    door_back = {0: 1, 1: 1, 2: 2, 3: 2}
+    for pos in range(MAXPOS + 1):
+        body = scene_body(cfg, model, accent, world, pos * STEP, ps, "walk" if pos else "zoom") + figure()
+        emit(f"game-street-{pos}.svg", (slice_doc(body, 0, SW), SH, alt_street))
     for i, proj in enumerate(ps):
-        content, h, alt = room_doc(cfg, proj, accent, i)
-        item = emit(f"room-{i + 1}.svg", (content, h, alt), proj.get("url"), SW)
-        s, sh = strip_doc(cfg, tr(cfg, "back_street"), SW, accent)
-        back = emit("strip-room-back.svg", (s, sh, tr(cfg, "back_street")), None, SW)
-        pages.append({"path": f"assets/street/room-{i + 1}.md", "rows": [[item], [dict(back, href=page_url(door_back[i]))]]})
-    return pages
+        emit(f"game-room-{i + 1}.svg", room_doc(cfg, proj, accent, i)[:3])
+    labels = {"forward": "btn_forward", "back": "btn_back", "left": "btn_left", "right": "btn_right",
+              "exit": "btn_exit", "repo": "btn_repo"}
+    for key, tkey in labels.items():
+        text = tr(cfg, tkey)
+        doc, h = button_doc(text, accent)
+        emit(f"btn-{key}.svg", (doc, h, text))
+    return {"max": MAXPOS, "door_pos": {str(k): list(v) for k, v in DOOR_POS.items()},
+            "projects": [{"name": p["name"], "url": p.get("url")} for p in ps],
+            "alt_street": alt_street}

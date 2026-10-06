@@ -7,7 +7,8 @@ import os
 import re
 import sys
 
-from common import MANIFEST_PATH, ROOT, esc, load_json, write_if_changed
+from common import CONFIG_PATH, MANIFEST_PATH, ROOT, esc, load_json, write_if_changed
+import game as game_mod
 
 START = "<!-- console:start -->"
 END = "<!-- console:end -->"
@@ -15,7 +16,15 @@ END = "<!-- console:end -->"
 
 def build_block(manifest):
     lines = ['<p align="center">']
-    for row in manifest["rows"]:
+    rows = manifest["rows"]
+    extra = None
+    if manifest.get("game"):
+        extra = game_mod.block(load_json(CONFIG_PATH), manifest["game"], game_mod.load_state())
+    for ri, row in enumerate(rows):
+        if extra and ri == len(rows) - 1:
+            lines.append("</p>")
+            lines.append(extra)
+            lines.append('<p align="center">')
         n = len(row)
         parts = []
         for item in row:
@@ -58,8 +67,6 @@ def main():
         text = f.read()
     if text.count(START) != 1 or text.count(END) != 1:
         sys.exit(f"fehler: README.md braucht genau je eine Markierung {START} und {END}.")
-    for page in manifest.get("pages", []):
-        write_if_changed(os.path.join(ROOT, page["path"]), build_page(page))
     block = f"{START}\n{build_block(manifest)}\n{END}"
     new = re.sub(re.escape(START) + r".*?" + re.escape(END), lambda _: block, text, flags=re.S)
     changed = write_if_changed(path, new)

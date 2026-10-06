@@ -1,0 +1,55 @@
+{
+  "width": 830,
+  "rows": [
+    [
+      {
+        "file": "assets/console/scene.svg",
+        "w": 830,
+        "h": 494,
+        "alt": "Jakob: I like tinkering with AI.. Pixel night city: each building is one week, each lit window an active day. 679 contributions in the past year, 164 active days, longest streak 9 days, 1,191 in total.",
+        "href": null
+      }
+    ],
+    [
+      {
+        "file": "assets/console/project-1.svg",
+        "w": 415,
+        "h": 176,
+        "alt": "Project example-project-1: Placeholder: the description of your repo from GitHub shows up here.",
+        "href": "https://github.com/DEIN-GITHUB-NAME"
+      },
+      {
+        "file": "assets/console/project-2.svg",
+        "w": 415,
+        "h": 176,
+        "alt": "Project example-project-2: Placeholder: what the project does and why it exists, short and concrete.",
+        "href": "https://github.com/DEIN-GITHUB-NAME"
+      }
+    ],
+    [
+      {
+        "file": "assets/console/project-3.svg",
+        "w": 415,
+        "h": 176,
+        "alt": "Project example-project-3: Placeholder: small experiments belong here too.",
+        "href": "https://github.com/DEIN-GITHUB-NAME"
+      },
+      {
+        "file": "assets/console/project-4.svg",
+        "w": 415,
+        "h": 176,
+        "alt": "Project example-project-4: Placeholder: two lines at most are shown, the rest gets cut off.",
+        "href": "https://github.com/DEIN-GITHUB-NAME"
+      }
+    ],
+    [
+      {
+        "file": "assets/console/footer.svg",
+        "w": 830,
+        "h": 60,
+        "alt": "As of Oct 6, 2026.",
+        "href": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "github_user": "HelmarHansen",
+  "name": "Jakob",
+  "lang": "en",
+  "tagline": "I like tinkering with AI.",
+  "accent": "#ffd166",
+  "config_lines": [
+    { "key": "Goal", "value": "work with AI someday" },
+    { "key": "Likes", "value": "understanding things and building them myself" }
+  ],
+  "projects": {
+    "count": 4,
+    "pinned": [],
+    "exclude": []
+  }
+}

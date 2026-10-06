@@ -16,18 +16,6 @@ END = "<!-- console:end -->"
 def build_block(manifest):
     lines = ['<p align="center">']
     for row in manifest["rows"]:
-        if row[0].get("details"):
-            front, inner = row[0]["front"], row[0]["inner"]
-            lines.append("</p>")
-            lines.append('<div align="center">')
-            lines.append("<details>")
-            lines.append(f'<summary><img src="./{front["file"]}" width="97%" alt="{esc(front["alt"])}"></summary>')
-            lines.append(f'<img src="./{inner["file"]}" width="100%" alt="{esc(inner["alt"])}">')
-            lines.append("</details>")
-            lines.append("</div>")
-            lines.append("")
-            lines.append('<p align="center">')
-            continue
         n = len(row)
         parts = []
         for item in row:
@@ -51,6 +39,11 @@ def main():
         text = f.read()
     if text.count(START) != 1 or text.count(END) != 1:
         sys.exit(f"fehler: README.md braucht genau je eine Markierung {START} und {END}.")
+    street = manifest.get("street")
+    if street:
+        img = f'<img src="./{street["file"]}" width="100%" alt="{esc(street["alt"])}">'
+        page = f'<p align="center">\n<a href="{esc(street["href"])}">{img}</a>\n</p>\n'
+        write_if_changed(os.path.join(ROOT, "STREET.md"), page)
     block = f"{START}\n{build_block(manifest)}\n{END}"
     new = re.sub(re.escape(START) + r".*?" + re.escape(END), lambda _: block, text, flags=re.S)
     changed = write_if_changed(path, new)

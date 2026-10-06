@@ -3,21 +3,11 @@
   "rows": [
     [
       {
-        "details": true,
-        "front": {
-          "file": "assets/console/scene.svg",
-          "w": 830,
-          "h": 494,
-          "alt": "Jakob: I like tinkering with AI.. Pixel night city: each building is one week, each lit window an active day. 154 contributions in the past year, 34 active days, longest streak 10 days, 155 in total.",
-          "href": null
-        },
-        "inner": {
-          "file": "assets/console/street.svg",
-          "w": 830,
-          "h": 460,
-          "alt": "Street view at night: tall buildings with lit windows and four neon signs: 154 contributions in the past year, 34 active days, longest streak 10 days, 155 in total.",
-          "href": null
-        }
+        "file": "assets/console/scene.svg",
+        "w": 830,
+        "h": 494,
+        "alt": "Jakob: I like tinkering with AI.. Pixel night city: each building is one week, each lit window an active day. 156 contributions in the past year, 34 active days, longest streak 10 days, 157 in total.",
+        "href": "https://github.com/HelmarHansen/HelmarHansen/blob/main/STREET.md"
       }
     ],
     [
@@ -61,5 +51,12 @@
         "href": null
       }
     ]
-  ]
+  ],
+  "street": {
+    "file": "assets/console/street.svg",
+    "w": 830,
+    "h": 460,
+    "alt": "Street view at night: tall buildings with lit windows and four neon signs: 156 contributions in the past year, 34 active days, longest streak 10 days, 157 in total.",
+    "href": "https://github.com/HelmarHansen"
+  }
 }

@@ -221,7 +221,11 @@ def street(cfg, model, accent):
     shadow = rects(CX - pw // 2 - 6, SH - 10, pw + 12, 4, "#05070f", 'fill-opacity=".5"')
     rim = rects(CX - pw // 2, SH - ph - 10 + 3 * px, px, px * 2, "#9fb0e8", 'fill-opacity=".5"')
 
+    back = tr(cfg, "hint_back")
+    bx = SW - 24 - R.pf.width(back, 2)
+    backhint = (f'<g class="tw" style="animation-duration:2.6s">{rects(bx - 10, SH - 40, R.pf.width(back, 2) + 20, 24, "#0a0f22", chr(102) + "ill-opacity=" + chr(34) + ".6" + chr(34))}'
+                f'{R.tpath(back, bx, SH - 33, 2, accent)}</g>')
     alt = tr(cfg, "alt_street").format(
         year=fmt_int(cfg, model["year_total"]), days=fmt_int(cfg, model["active_days"]),
         streak=fmt_int(cfg, model["longest"]), total=fmt_int(cfg, model["total"]))
-    return svg_doc(SW, SH, alt, zoom + shadow + figure + rim), SH, alt
+    return svg_doc(SW, SH, alt, zoom + shadow + figure + rim + backhint), SH, alt

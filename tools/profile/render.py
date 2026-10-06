@@ -638,9 +638,10 @@ def main():
         return {"file": f"assets/console/{name}", "w": w, "h": h, "alt": alt, "href": href}
 
     import street as street_view
-    scene_item = emit("scene.svg", scene(cfg, model, accent))
-    street_item = emit("street.svg", street_view.street(cfg, model, accent))
-    rows.append([{"details": True, "front": scene_item, "inner": street_item}])
+    user = cfg.get("github_user", "")
+    scene_item = emit("scene.svg", scene(cfg, model, accent), f"https://github.com/{user}/{user}/blob/main/STREET.md")
+    street_item = emit("street.svg", street_view.street(cfg, model, accent), f"https://github.com/{user}")
+    rows.append([scene_item])
 
     projects = data.get("projects", [])
     half = W // 2
@@ -656,7 +657,7 @@ def main():
 
     rows.append([emit("footer.svg", footer_slice(cfg, data))])
 
-    manifest = json.dumps({"width": W, "rows": rows}, ensure_ascii=False, indent=2) + "\n"
+    manifest = json.dumps({"width": W, "rows": rows, "street": street_item}, ensure_ascii=False, indent=2) + "\n"
     write_if_changed(MANIFEST_PATH, manifest)
     print(f"{sum(len(r) for r in rows)} SVG-Dateien in {ASSET_DIR} geschrieben.")
 

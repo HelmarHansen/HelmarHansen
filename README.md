@@ -5,7 +5,7 @@
 <a href="https://github.com/HelmarHansen/Gemma-4-Contest-Hackathon-Best-Submission"><img src="./assets/console/project-3.svg" width="50%" align="top" alt="Project Gemma-4-Contest-Hackathon-Best-Submission: No description yet."></a><img src="./assets/console/project-4.svg" width="50%" align="top" alt="Project Coming soon: Not published yet.">
 </p>
 <p align="center">
-<img src="./assets/console/game-street-4.svg" width="100%" align="top" alt="Street view at night: tall buildings with lit windows and four neon signs: 163 contributions in the past year, 34 active days, longest streak 10 days, 164 in total.">
+<img src="./assets/console/game-street-5.svg" width="100%" align="top" alt="Street view at night: tall buildings with lit windows and four neon signs: 163 contributions in the past year, 34 active days, longest streak 10 days, 164 in total.">
 </p>
 <p align="center">
 <a href="https://github.com/HelmarHansen/HelmarHansen/issues/new?title=move%3A+back&amp;body=Just+press+%22Submit+new+issue%22.+The+street+updates+in+a+few+seconds+and+this+issue+closes+itself."><img src="./assets/console/btn-back.svg" width="24%" align="top" alt="back"></a><a href="https://github.com/HelmarHansen/HelmarHansen/issues/new?title=move%3A+forward&amp;body=Just+press+%22Submit+new+issue%22.+The+street+updates+in+a+few+seconds+and+this+issue+closes+itself."><img src="./assets/console/btn-forward.svg" width="24%" align="top" alt="forward"></a>
